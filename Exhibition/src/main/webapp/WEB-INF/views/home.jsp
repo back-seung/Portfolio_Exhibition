@@ -1,7 +1,6 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
-<%@ page session="false"%>
 <html>
 <head>
 <meta charset="UTF-8" />
@@ -44,17 +43,20 @@ body {
 	<nav class="navbar navbar-default">
 		<div class="container-fluid">
 			<div class="navbar-header">
-				<a class="navbar-brand" href="#">Exhibition Recommend</a>
+				<a class="navbar-brand" href="${pageContext.request.contextPath}/">Exhibition
+					Recommend</a>
 			</div>
 
 			<!-- Collect the nav links, forms, and other content for toggling -->
 			<div class="collapse navbar-collapse"
 				id="bs-example-navbar-collapse-1">
 				<ul class="nav navbar-nav navbar-right">
-					<li><a href="/html/selectAll.html">VIEW LIST</a></li>
-					<li><a href="/html/">MY PAGE</a></li>
+					<li><a>${sessionScope.userName}님 </a></li>
+					<li name="id"><input type="hidden" name="id" value="${sessionScope.userName}"/></li>
+					<li><a href="#">VIEW LIST</a></li>
+					<li><a href="userMyPageForm?id=${sessionScope.userId}">MY PAGE</a></li>
 					<li></li>
-					<li><a href="/html/login.html">LOG OUT</a></li>
+					<li><a href="logout">LOG OUT</a></li>
 				</ul>
 			</div>
 			<!-- /.navbar-collapse -->
@@ -74,10 +76,10 @@ body {
 							<li class="list-group-item"><span
 								class="label label-default">New</span> Exhibition은 사람들이 많이 찾는
 								인싸가 될 수 있는 전시회를 엄중하게 선별하여 소개 시켜드립니다.</li>
-							<li class="list-group-item">Exhibition은
-								사람들이 잘 모르고 있던 숨겨진 보물같은 전시회를 찾아 소개 시켜드립니다.</li>
-							<li class="list-group-item">Exhibition은
-								사람들에게 유용한 전시회만을 찾아 소개 시켜드립니다.</li>
+							<li class="list-group-item">Exhibition은 사람들이 잘 모르고 있던 숨겨진
+								보물같은 전시회를 찾아 소개 시켜드립니다.</li>
+							<li class="list-group-item">Exhibition은 사람들에게 유용한 전시회만을 찾아
+								소개 시켜드립니다.</li>
 						</ul>
 					</div>
 				</div>
@@ -134,7 +136,7 @@ body {
 				환경단체(부산환경공단, WWF, 대자연)들과 함께 환경 운동에 대한 문제 제기를 하고, 관람객들로 하여금 환경 문제에 대한
 				자각을 꾀하기 위해 마련되었다.참여작가 : 꼴라쥬플러스(SHO JANG&MIN KIM), 고지인, 김남표, 김민수,
 				김영원, 김정민, 김지희, 두민, 류지윤, 신이철, 안효찬, 이상훈, 이세현, 이송준, 이원주, 이태수, 이호준, 임채욱,
-				정해윤, 황유식, Alessandro Mendini, Karim Rashid
+				정해윤, 황유식, Alessandro Mendini, Karim Rashid 
 			</div>
 			<hr />
 			<div class="caption">2020-09-12 ~ 2022-02-02</div>
