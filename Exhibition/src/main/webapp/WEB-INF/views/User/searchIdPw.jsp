@@ -20,28 +20,29 @@
 <title>Document</title>
 </head>
 <body>
-	<form action="userSearch" method="get"></form>
-	<div class="jumbotron text-center">
-		<h2>ID / PW 찾기</h2>
-		<div class="caption">이름을 입력해주세요</div>
-		<br> <input type="text" name="id" id=""><span><input
-			type="submit" value="SEARCH"></span>
-
-		<p>
-		<div class="thumbnail">
-			<div class="caption">검색결과 입니다.</div>
-			<h3>
-				회원님의 ID : <strong>${user.id}</strong>
-			</h3>
-			<hr>
-			<h3>
-				회원님의 PW : <strong>${user.pw}</strong>
-			</h3>
-		</div>
-		</p>
+	<form action="userSearch" method="get">
+		<div class="jumbotron text-center">
+			<h2>ID / PW 찾기</h2>
+			<div class="caption">이름을 입력해주세요</div>
+			<br> <input type="text" name="name" id=""><span><input
+				type="submit" value="SEARCH"></span>
+	</form>
+	<p>
+	<div class="thumbnail">
+		<div class="caption">검색결과 입니다.</div>
+		<h3>
+			회원님의 ID : <strong>${user.id}</strong>
+		</h3>
+		<hr>
+		<h3>
+			회원님의 PW : <strong>${user.pw}</strong>
+		</h3>
+	</div>
+	</p>
 	</div>
 	<div class="text-center">
-		<a class="btn btn-default home" href="/html/viewList.html">처음으로</a>
+		<a class="btn btn-default home"
+			href="${pageContext.request.contextPath}/">처음으로</a>
 	</div>
 </body>
 </html>

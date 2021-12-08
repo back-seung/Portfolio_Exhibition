@@ -52,7 +52,7 @@ body {
 				id="bs-example-navbar-collapse-1">
 				<ul class="nav navbar-nav navbar-right">
 					<li><a>${sessionScope.userName}님 </a></li>
-					<li name="id"><input type="hidden" name="id" value="${sessionScope.userName}"/></li>
+					<li><input type="hidden" name="id" value="${sessionScope.userName}"/></li>
 					<li><a href="#">VIEW LIST</a></li>
 					<li><a href="userMyPageForm?id=${sessionScope.userId}">MY PAGE</a></li>
 					<li></li>

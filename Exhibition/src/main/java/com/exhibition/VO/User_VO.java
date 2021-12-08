@@ -1,9 +1,26 @@
 package com.exhibition.VO;
 
 public class User_VO {
+	int u_no = 0;
 	String id = null;
-	String pwd = null;
+	String pw = null;
 	String name = null;
+
+	public int getU_no() {
+		return u_no;
+	}
+
+	public void setU_no(int u_no) {
+		this.u_no = u_no;
+	}
+
+	public String getPw() {
+		return pw;
+	}
+
+	public void setPw(String pw) {
+		this.pw = pw;
+	}
 
 	public String getId() {
 		return id;
@@ -11,14 +28,6 @@ public class User_VO {
 
 	public void setId(String id) {
 		this.id = id;
-	}
-
-	public String getPwd() {
-		return pwd;
-	}
-
-	public void setPwd(String pwd) {
-		this.pwd = pwd;
 	}
 
 	public String getName() {
