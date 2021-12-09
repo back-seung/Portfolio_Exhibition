@@ -42,15 +42,14 @@
 		</div>
 		<!-- /.container-fluid -->
 	</nav>
-	<form class="" action="">
+	<form action="noticeInput" method="post">
 		<div class="col-md-offset-5 col-md-2 text-center">
 			<div class="thumbnail">
 				<h2>공지글 입력 !</h2>
 			</div>
-			<input type="text" class="form-control" name="notice"
-				placeholder="공지글 입력" /><input type="submit" class="btn btn-default"
-				value="등록" /> <input type="button" class="btn btn-default"
-				value="뒤로가기" />
+			<input type="text" class="form-control" name="notice" placeholder="공지글 입력" />
+				<input type="submit" class="btn btn-default" value="등록" />
+				<a href="${pageContext.request.contextPath}/"><input type="button" class="btn btn-default" value="뒤로가기" /></a>
 		</div>
 	</form>
 </body>

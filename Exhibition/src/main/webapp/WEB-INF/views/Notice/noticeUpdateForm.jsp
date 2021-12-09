@@ -35,32 +35,21 @@
         <div class="collapse navbar-collapse">
           <ul class="nav navbar-nav navbar-right">
             <li><a>${sessionScope.userName}님 </a></li>
-            <li
-              ><input type="hidden" name="id" value="${sessionScope.userName}"
-            /></li>
             <li><a href="#">VIEW LIST</a></li>
-            <li
-              ><a href="userMyPageForm?id=${sessionScope.userId}"
-                >MY PAGE</a
-              ></li
-            >
-            <li></li>
+            <li><a href="userMyPageForm?id=${sessionScope.userId}">MY PAGE</a></li>
             <li><a href="logout">LOG OUT</a></li>
           </ul>
         </div>
-        <!-- /.navbar-collapse -->
       </div>
-      <!-- /.container-fluid -->
     </nav>
-    <form class="" action="">
+    <form class="" action="noticeMod" method="post">
       <div class="col-md-offset-5 col-md-2 text-center">
-        <div class="thumbnail"><h2>공지 수정 </h2></div>
-        <input
-          type="text"
-          class="form-control"
-          name="notice"
-          placeholder="수정 내용"
-        /><input type="submit" class="btn btn-default" value="수정" />
+        <div class="thumbnail">
+        	<h2>공지 수정 </h2>
+        	<input type="hidden" name="n_no" value="${ntc.n_no}"/>
+        	<div class="caption">현재 값 : ${ntc.notice} </div>
+        </div>
+        <input type="text" class="form-control" name="notice" placeholder="수정 내용" /><input type="submit" class="btn btn-default" value="수정" />
         <input type="submit" class="btn btn-default" value="뒤로가기" />
       </div>
     </form>
