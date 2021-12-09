@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.exhibition.DAO.IF_User_DAO">
+	<insert id="insert">
+		INSERT INTO myUser values(
+		seq_user.nextval, #{id},
+		#{name}, #{pw}
+		)
+	</insert>
+	<select id="selectOne" resultType="com.exhibition.VO.User_VO">
+		SELECT * FROM myUser WHERE
+		id =
+		#{id}
+	</select>
+	<select id="search" resultType="com.exhibition.VO.User_VO">
+		SELECT * FROM myUser WHERE
+		name =
+		#{name}
+	</select>
+	<update id="update">
+		UPDATE myUser
+		SET name = #{name}
+		WHERE id = #{id}
+	</update>
+	<delete id="delete">
+		DELETE FROM myUser
+		WHERE id = #{id}
+	</delete>
+</mapper>

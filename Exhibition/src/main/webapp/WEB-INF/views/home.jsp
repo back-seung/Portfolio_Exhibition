@@ -48,13 +48,14 @@ body {
 			</div>
 
 			<!-- Collect the nav links, forms, and other content for toggling -->
-			<div class="collapse navbar-collapse"
-				id="bs-example-navbar-collapse-1">
+			<div class="collapse navbar-collapse">
 				<ul class="nav navbar-nav navbar-right">
 					<li><a>${sessionScope.userName}님 </a></li>
-					<li><input type="hidden" name="id" value="${sessionScope.userName}"/></li>
+					<li><input type="hidden" name="id"
+						value="${sessionScope.userName}" /></li>
 					<li><a href="#">VIEW LIST</a></li>
-					<li><a href="userMyPageForm?id=${sessionScope.userId}">MY PAGE</a></li>
+					<li><a href="userMyPageForm?id=${sessionScope.userId}">MY
+							PAGE</a></li>
 					<li></li>
 					<li><a href="logout">LOG OUT</a></li>
 				</ul>
@@ -73,9 +74,8 @@ body {
 					<div class="caption">
 						<ul class="list-group">
 							<span class="badge"><a class="notice" href=""> NOTICE</a></span>
-							<li class="list-group-item"><span
-								class="label label-default">New</span> Exhibition은 사람들이 많이 찾는
-								인싸가 될 수 있는 전시회를 엄중하게 선별하여 소개 시켜드립니다.</li>
+							<li class="list-group-item">Exhibition은 사람들이 많이 찾는 인싸가 될 수
+								있는 전시회를 엄중하게 선별하여 소개 시켜드립니다.</li>
 							<li class="list-group-item">Exhibition은 사람들이 잘 모르고 있던 숨겨진
 								보물같은 전시회를 찾아 소개 시켜드립니다.</li>
 							<li class="list-group-item">Exhibition은 사람들에게 유용한 전시회만을 찾아
