@@ -53,7 +53,7 @@ body {
 					<li><a>${sessionScope.userName}님 </a></li>
 					<li><input type="hidden" name="id"
 						value="${sessionScope.userName}" /></li>
-					<li><a href="#">VIEW LIST</a></li>
+					<li><a href="rcmdInsertForm">VIEW LIST</a></li>
 					<li><a href="userMyPageForm?id=${sessionScope.userId}">MY
 							PAGE</a></li>
 					<li></li>
