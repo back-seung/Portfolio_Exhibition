@@ -36,7 +36,7 @@
 			</div>
 		</div>
 	</nav>
-	<form action="loginProcess" method="post" encType="">
+	<form action="loginProcess" method="post" encType="multipart/form-data">
 		<div class="jumbotron text-center">
 			<h1>Insert Exhibition</h1>
 			<hr>
