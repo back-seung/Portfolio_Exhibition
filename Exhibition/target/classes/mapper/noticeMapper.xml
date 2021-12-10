@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.exhibition.DAO.IF_Notice_DAO">
+	<insert id="insert">
+		INSERT INTO notice
+		VALUES (
+		seq_ntc.nextval, #{notice}
+		)
+	</insert>
+
+	<select id="selectAll" resultType="com.exhibition.VO.Notice_VO">
+		SELECT * FROM notice ORDER BY n_no DESC
+	</select>
+	<select id="selectOne" resultType="com.exhibition.VO.Notice_VO">
+		SELECT * FROM notice
+		WHERE n_no = #{n_no}
+	</select>
+	<update id ="update">
+		UPDATE notice
+		SET notice = #{notice}
+		WHERE n_no = #{n_no}
+	</update>
+	<delete id="delete">
+		DELETE FROM notice
+		WHERE n_no = #{n_no}
+	</delete>
+</mapper>

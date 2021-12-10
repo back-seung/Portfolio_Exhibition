@@ -53,7 +53,7 @@ body {
 					<li><a>${sessionScope.userName}님 </a></li>
 					<li><input type="hidden" name="id"
 						value="${sessionScope.userName}" /></li>
-					<li><a href="#">VIEW LIST</a></li>
+					<li><a href="rcmdInsertForm">VIEW LIST</a></li>
 					<li><a href="userMyPageForm?id=${sessionScope.userId}">MY
 							PAGE</a></li>
 					<li></li>
@@ -73,13 +73,11 @@ body {
 				<div class="page-header font-lg">
 					<div class="caption">
 						<ul class="list-group">
-							<span class="badge"><a class="notice" href=""> NOTICE</a></span>
-							<li class="list-group-item">Exhibition은 사람들이 많이 찾는 인싸가 될 수
-								있는 전시회를 엄중하게 선별하여 소개 시켜드립니다.</li>
-							<li class="list-group-item">Exhibition은 사람들이 잘 모르고 있던 숨겨진
-								보물같은 전시회를 찾아 소개 시켜드립니다.</li>
-							<li class="list-group-item">Exhibition은 사람들에게 유용한 전시회만을 찾아
-								소개 시켜드립니다.</li>
+							<span class="badge"><a class="notice" href="noticeList">
+									NOTICE</a></span>
+							<c:forEach var="ntcList" items="${ntcList}">
+								<li class="list-group-item">${ntcList.notice}</li>
+							</c:forEach>
 						</ul>
 					</div>
 				</div>

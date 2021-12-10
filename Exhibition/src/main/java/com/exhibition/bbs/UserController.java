@@ -1,6 +1,7 @@
 package com.exhibition.bbs;
 
 import javax.inject.Inject;
+import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -62,8 +63,10 @@ public class UserController {
 
 	// 유저 수정 처리 id를 통해 name변경
 	@RequestMapping(value = "/userMod", method = RequestMethod.POST)
-	public String userMod(User_VO userVO) throws Exception {
+	public String userMod(HttpSession session, User_VO userVO) throws Exception {
 		service.userMod(userVO);
+		session.setAttribute("userId", userVO.getId());
+		session.setAttribute("userName", userVO.getName());
 		return "redirect:/userMyPageForm?id=" + userVO.getId();
 	}
 
