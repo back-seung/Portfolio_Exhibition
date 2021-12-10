@@ -4,16 +4,29 @@
 	<insert id="insert">
 		INSERT INTO recommend
 		VALUES (
-			seq_rcmd.nextval,
-			#{filename},
-			#{city},
-			#{title},
-			#{info},
-			#{begin_d},
-			#{end_d},
-			0,
-			#{filenamethumb}			
+		seq_rcmd.nextval,
+		#{fileName},
+		#{city},
+		#{title},
+		#{info},
+		#{begin_d},
+		#{end_d},
+		0
 		)
-		
 	</insert>
+	<select id="selectAll" resultType="com.exhibition.VO.Rcmd_VO">
+		SELECT * FROM recommend
+	</select>
+	<select id="rcmdCnt" resultType="int">
+		SELECT count(*) from recommend
+	</select>
+	<select id="selectOne" resultType="com.exhibition.VO.Rcmd_VO">
+		SELECT * FROM recommend WHERE
+		rc_no = #{rc_no}
+	</select>
+	<update id="updateCnt">
+		UPDATE recommend SET cnt = cnt + 1
+		WHERE rc_no =
+		#{rc_no}
+	</update>
 </mapper>
