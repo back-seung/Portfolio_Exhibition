@@ -1,4 +1,6 @@
-package com.exhibition.bbs;
+ package com.exhibition.bbs;
+
+import javax.inject.Inject;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -7,10 +9,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.exhibition.Service.IF_Rcmd_Service;
 import com.exhibition.VO.Rcmd_VO;
 
 @Controller
 public class RcmdController {
+	@Inject
+	IF_Rcmd_Service service;
+	
 	
 	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
 	// Insert 폼 이동
@@ -20,8 +26,9 @@ public class RcmdController {
 	}
 	
 	// 삽입
-	@RequestMapping(value = "/rcmdInsertForm", method = RequestMethod.POST)
+	@RequestMapping(value = "/rcmdInsert", method = RequestMethod.POST)
 	public String rcmdInsert(Rcmd_VO rcmdVO, MultipartFile file) throws Exception {
+		service.insert(rcmdVO);
 		return "redirect:/viewList";
 	}
 	
