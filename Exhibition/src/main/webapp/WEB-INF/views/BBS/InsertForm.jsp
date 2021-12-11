@@ -36,7 +36,7 @@
 			</div>
 		</div>
 	</nav>
-	<form action="loginProcess" method="post" encType="multipart/form-data">
+	<form action="rcmdInsert" method="post" encType="multipart/form-data">
 		<div class="jumbotron text-center">
 			<h1>Insert Exhibition</h1>
 			<hr>
@@ -67,7 +67,7 @@
 					<h4>파일</h4>
 					<p>
 						<label for="rcmdImg"></label>
-						<input id="rcmdImg" class="btn btn-default" type="file" name="filename">
+						<input id="rcmdImg" class="btn btn-default" type="file" name="file">
 						<div class="selectImg"><img src=""/></div>
 					</p>
 					<script>

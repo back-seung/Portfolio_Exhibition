@@ -31,7 +31,8 @@
 		<beans:property name="maxUploadSize" value="10485760"></beans:property>
 	</beans:bean>
 	<beans:bean id="uploadPath" class="java.lang.String">
-		<beans:constructor-arg value="/tmp"></beans:constructor-arg>
+		<beans:constructor-arg
+			value="/Users/seung/Desktop/Spring_MVC_Web/Exhibition/src/main/webapp/resources/img"></beans:constructor-arg>
 	</beans:bean>
 	<!-- Interceptor Settings -->
 	<beans:bean id="AuthLoginInterceptor"
@@ -48,6 +49,8 @@
 	</interceptors>
 	<context:component-scan
 		base-package="com.exhibition.bbs" />
+	<context:component-scan
+		base-package="com.exhibition.util" />
 
 
 

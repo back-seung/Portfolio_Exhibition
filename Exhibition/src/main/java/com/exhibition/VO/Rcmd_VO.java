@@ -1,23 +1,14 @@
 package com.exhibition.VO;
 
 public class Rcmd_VO {
-	int rc_no = 0;
-	String filename = null;
-	String city = null;
-	String title = null;
-	String info = null;
-	String begin_d = null;
-	String end_d = null;
-	int cnt = 0;
-	String filenamethumb= null;
-
-	public String getFilenamethumb() {
-		return filenamethumb;
-	}
-
-	public void setFilenamethumb(String filenamethumb) {
-		this.filenamethumb = filenamethumb;
-	}
+	private int rc_no = 0;
+	private String fileName = null;
+	private String city = null;
+	private String title = null;
+	private String info = null;
+	private String begin_d = null;
+	private String end_d = null;
+	private int cnt = 0;
 
 	public int getRc_no() {
 		return rc_no;
@@ -27,12 +18,12 @@ public class Rcmd_VO {
 		this.rc_no = rc_no;
 	}
 
-	public String getFilename() {
-		return filename;
+	public String getFileName() {
+		return fileName;
 	}
 
-	public void setFilename(String filename) {
-		this.filename = filename;
+	public void setFileName(String fileName) {
+		this.fileName = fileName;
 	}
 
 	public String getCity() {
