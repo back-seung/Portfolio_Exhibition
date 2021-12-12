@@ -35,4 +35,14 @@ public class Rcmd_Service_Impl implements IF_Rcmd_Service {
 		return rcmdDAO.selectOne(rcNo);
 	}
 
+	@Override
+	public void updateRcmd(Rcmd_VO rcmdVO) throws Exception {
+		rcmdDAO.updateRcmd(rcmdVO);
+	}
+
+	@Override
+	public void deleteRcmd(int rcNo) throws Exception {
+		rcmdDAO.deleteRcmd(rcNo);
+	}
+
 }

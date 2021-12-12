@@ -40,6 +40,7 @@ public class RcmdController {
 			System.out.println("첨부파일O");
 			String r_FileName = fileDataUtil.fileUpload(file);
 			rcmdVO.setFileName(r_FileName);
+			rcmdVO.setThumbFileName("t_" + r_FileName);
 		}
 		service.insert(rcmdVO);
 
@@ -64,9 +65,30 @@ public class RcmdController {
 		model.addAttribute("rcmd", service.selectOne(rcNo));
 		return "BBS/SelectOne";
 	}
+
 	// 수정 폼
+	@RequestMapping(value = "/rcmdModForm", method = RequestMethod.GET)
+	public String rcmdModForm(Model model, @RequestParam("rc_no") int rcNo) throws Exception {
+		model.addAttribute("rcmd", service.selectOne(rcNo));
+		return "BBS/ModForm";
+	}
 
 	// 수정
+	@RequestMapping(value = "/rcmdMod", method = RequestMethod.POST)
+	public String rcmdMod(MultipartFile file, Rcmd_VO rcmdVO) throws Exception {
+		if()
+			String mod_FileName = fileDataUtil.fileUpload(file);
+			rcmdVO.setFileName(mod_FileName);
+			rcmdVO.setThumbFileName("t_" + mod_FileName);
+		service.updateRcmd(rcmdVO);
+		return "redirect:/viewDetail";
+	}
 
 	// 삭제
+	@RequestMapping(value = "/rcmdDel", method = RequestMethod.GET)
+	public String rcmdDel(@RequestParam("rc_no") int rcNo) throws Exception {
+		service.deleteRcmd(rcNo);
+		return "redirect:/viewList";
+	}
+
 }

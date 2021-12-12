@@ -9,6 +9,15 @@ public class Rcmd_VO {
 	private String begin_d = null;
 	private String end_d = null;
 	private int cnt = 0;
+	private String thumbFileName = null;
+
+	public String getThumbFileName() {
+		return thumbFileName;
+	}
+
+	public void setThumbFileName(String thumbFileName) {
+		this.thumbFileName = thumbFileName;
+	}
 
 	public int getRc_no() {
 		return rc_no;

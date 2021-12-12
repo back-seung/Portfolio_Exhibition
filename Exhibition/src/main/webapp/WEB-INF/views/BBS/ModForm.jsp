@@ -1,3 +1,4 @@
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -45,41 +46,43 @@
 	</nav>
 	<div class="col-sm-12 col-md-12 item">
 		<div class="thumbnail">
-			<img class="img" src="/img/sayuroom.png" width="" />
+			<img class="img" src="<c:url value="/img/${rcmd.thumbFileName}"/>" />
 			<h2>
-				SEOUL
+				${rcmd.city }
 				<hr />
-				<small><a href="#">국립중앙박물관, 사유의 방</a></small>
+				<small><a href="#">제목 : ${rcmd.title}</a></small>
 			</h2>
-			<div class="caption" name="">사유의 방은 삼국시대 6세기 후반과 7세기 전반에 제작된
-				우리나라의 국보 반가사유상半跏思惟像 두 점을 나란히 전시한 공간이다. 어둡고 고요한 복도를 지나면 왼쪽 무릎 위에 오른쪽
-				다리를 얹고 오른쪽 손가락을 살짝 뺨에 댄 채 깊은 생각에 잠긴 반가사유상을 만나볼 수 있다. 뛰어난 주조기술을 바탕으로
-				간결하면서도 생동감 넘치고, 화려하면서도 절제된 근엄한 반가사유상의 모습은 인간의 생로병사에 대한 깊은 고뇌와 깨달음을
-				상징한다.</div>
+			<div class="caption">설명 : ${rcmd.info}</div>
 			<hr />
-			<div class="caption">2021-11 ~ 2022-01</div>
+			<div class="caption">${rcmd.begin_d}~${rcmd.end_d}</div>
 		</div>
 	</div>
-	<div class="col-sm-12 col-md-12 item text-center">
-		<div class="thumbnail">
-			<h4>
-				수정란
+	<form action="rcmdMod" method="post" encType="multipart/form-data">
+		<div class="col-sm-12 col-md-12 item text-center">
+			<div class="thumbnail">
+				<h4>
+					수정란
+					<hr />
+				</h4>
+				<div class="caption">
+					제목 수정 : <input type="text" name="title" placeholder="제목 입력" id="">
+				</div>
+				<div class="caption">
+					설명 수정 : <input type="text" name="info" placeholder="설명 입력" id="">
+				</div>
+				<div class="caption">썸네일 수정 : 
+					<input type="file" name="file">
+				</div>
 				<hr />
-			</h4>
-			<div class="caption">
-				제목 수정 : <input type="text" name="city" placeholder="제목 입력" id="">
-			</div>
-			<div class="caption">
-				설명 수정 : <input type="text" name="name" placeholder="설명 입력" id="">
-			</div>
-			<hr />
-			<div>
-				<a class="btn btn-default" href="ModUser">수정완료</a>
+				<div>
+					<a class="btn btn-default" href="ModUser">수정완료</a>
+				</div>
 			</div>
 		</div>
-	</div>
+	</form>
 	<div class="text-center">
-		<a class="btn btn-default home" href="${pageContext.request.contextPath}/">처음으로</a>
+		<a class="btn btn-default home"
+			href="${pageContext.request.contextPath}/">처음으로</a>
 	</div>
 </body>
 </html>

@@ -16,4 +16,8 @@ public interface IF_Rcmd_DAO {
 
 	public Rcmd_VO selectOne(int rcNo) throws Exception;
 
+	public void updateRcmd(Rcmd_VO rcmdVO) throws Exception;
+
+	public void deleteRcmd(int rcNo) throws Exception;
+
 }
