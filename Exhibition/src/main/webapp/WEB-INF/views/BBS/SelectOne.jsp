@@ -65,6 +65,7 @@
 		<div class="thumbnail">
 			<!--<img class="img" src="/img/${rcmd.fileName}" /> -->
 			<img class="img" src="<c:url value="/img/${rcmd.fileName}"/>" />
+			<img class="img" src="<c:url value="/img/sayuroom.png"/>" />
 			<h2>
 				${rcmd.city }
 				<hr />

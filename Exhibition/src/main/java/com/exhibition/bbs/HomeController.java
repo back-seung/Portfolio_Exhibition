@@ -20,7 +20,7 @@ import com.exhibition.VO.Notice_VO;
 public class HomeController {
 	@Inject
 	IF_Notice_Service noticeService;
-	
+
 	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
 
 	@RequestMapping(value = "/", method = RequestMethod.GET)
