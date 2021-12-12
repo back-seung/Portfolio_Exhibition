@@ -11,7 +11,8 @@
 		#{info},
 		#{begin_d},
 		#{end_d},
-		0
+		0,
+		#{thumbFileName}
 		)
 	</insert>
 	<select id="selectAll" resultType="com.exhibition.VO.Rcmd_VO">
@@ -29,4 +30,14 @@
 		WHERE rc_no =
 		#{rc_no}
 	</update>
+	<update id="update">
+		UPDATE recommend SET title = #{title}, info =
+		${info}, fileName = #{fileName}, thumbFileName=#{thumbFileName}
+		WHERE
+		rc_no = #{rc_no}
+	</update>
+	<delete id="delete">
+		DELETE FROM recommend
+		WHERE rc_no = #{rc_no}
+	</delete>
 </mapper>

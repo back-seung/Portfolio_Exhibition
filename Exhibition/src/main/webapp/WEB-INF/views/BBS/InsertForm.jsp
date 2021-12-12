@@ -57,11 +57,11 @@
 				</p>
 				<h4>시작날짜</h4>
 				<p>
-					<input type="text" name="begin_d" id="">
+					<input type="date" name="begin_d" id="">
 				</p>
 				<h4>종료날짜</h4>
 				<p>
-					<input type="text" name="end_d" id="">
+					<input type="date" name="end_d" id="">
 				</p>
 				<div>
 					<h4>파일</h4>

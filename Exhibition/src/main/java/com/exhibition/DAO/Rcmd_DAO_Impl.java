@@ -42,4 +42,14 @@ public class Rcmd_DAO_Impl implements IF_Rcmd_DAO {
 		return session.selectOne(mapperQuery + ".selectOne", rcNo);
 	}
 
+	@Override
+	public void updateRcmd(Rcmd_VO rcmdVO) throws Exception {
+		session.update(mapperQuery + ".update", rcmdVO);
+	}
+
+	@Override
+	public void deleteRcmd(int rcNo) throws Exception {
+		session.delete(mapperQuery + ".delete", rcNo);
+	}
+
 }
