@@ -22,7 +22,7 @@ public class ReplyController {
 	@RequestMapping(value = "/ReplyInsert", method = RequestMethod.POST)
 	public String ReplyInsert(Reply_VO reVO) throws Exception {
 		service.ReplyInsert(reVO);
-		return "redirect:/viewDetail?rc_no="+ reVO.getRc_no();
+		return "redirect:/viewDetail?rc_no=" + reVO.getRc_no();
 	}
 
 //	@RequestMapping(value = "/ReplyDEl", method = RequestMethod.GET)
