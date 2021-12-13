@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.exhibition.DAO.IF_Reply_DAO">
+	<insert id="insert">
+		INSERT INTO reply
+		VALUES (
+		#{rc_no},
+		seq_rpy.nextval,
+		#{author},
+		#{cmt},
+		default
+		)
+	</insert>
+	<select id="selectAll" resultType="com.exhibition.VO.Reply_VO">
+		SELECT * FROM reply
+		WHERE rc_no
+		= #{rc_no}
+	</select>
+	<update id="update">
+		UPDATE SET reply
+		cmt = #{cmt}
+		WHERE rc_no = #{rc_no}
+	</update>
+	<delete id="delete">
+		DELETE FROM reply
+		WHERE rc_no = #{rc_no}
+	</delete>
+</mapper>

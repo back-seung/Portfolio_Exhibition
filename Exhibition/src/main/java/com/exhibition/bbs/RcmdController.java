@@ -63,6 +63,7 @@ public class RcmdController {
 	@RequestMapping(value = "/viewDetail", method = RequestMethod.GET)
 	public String viewDetail(Model model, @RequestParam("rc_no") int rcNo) throws Exception {
 		model.addAttribute("rcmd", service.selectOne(rcNo));
+		model.addAttribute("cmt", replyService.selectAll(rcNo));
 		return "BBS/SelectOne";
 	}
 
@@ -76,10 +77,9 @@ public class RcmdController {
 	// 수정
 	@RequestMapping(value = "/rcmdMod", method = RequestMethod.POST)
 	public String rcmdMod(MultipartFile file, Rcmd_VO rcmdVO) throws Exception {
-		if()
-			String mod_FileName = fileDataUtil.fileUpload(file);
-			rcmdVO.setFileName(mod_FileName);
-			rcmdVO.setThumbFileName("t_" + mod_FileName);
+		String mod_FileName = fileDataUtil.fileUpload(file);
+		rcmdVO.setFileName(mod_FileName);
+		rcmdVO.setThumbFileName("t_" + mod_FileName);
 		service.updateRcmd(rcmdVO);
 		return "redirect:/viewDetail";
 	}

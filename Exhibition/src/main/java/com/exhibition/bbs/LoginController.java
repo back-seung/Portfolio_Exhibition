@@ -35,15 +35,8 @@ public class LoginController {
 
 	@RequestMapping(value = "/loginProcess", method = RequestMethod.POST)
 	public String loginPro(User_VO userVO, HttpSession session, HttpServletRequest request) throws Exception {
-		// 절차
-		// 1. ID & PW를 받아온다
-		// Parameter User_VO userVO 추가
-		// 2. DB를 조회하여 회원가입 여부를 확인한다.
 		String targetUrl = "";
 		User_VO tempUser = userService.selectOne(userVO.getId());
-		// 2-1 SELECT * FROM user WHERE id = ? AND pw = ? = 해킹 노출 위험 SQL Injection
-		// 2-2 SELECT * FROM user WHERE id = ? = 컨트롤러에서 pw 비교
-		// 3. [2-2] ? 컨트롤러에서 null일 경우(!= user) : pw 비교
 		if (tempUser == null) { // != User 다시 로그인
 			targetUrl = "login/login";
 			System.out.println("null");

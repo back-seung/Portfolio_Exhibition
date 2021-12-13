@@ -40,10 +40,10 @@
 	</beans:bean>
 	<interceptors>
 		<interceptor>
-			<mapping path="/" />
+			<mapping path="/**" />
 			<exclude-mapping path="/log**"></exclude-mapping>
-			<exclude-mapping path="/userRegister**"></exclude-mapping>
-			<exclude-mapping path="/userSearch**"></exclude-mapping>
+			<exclude-mapping path="/User/Register"></exclude-mapping>
+			<exclude-mapping path="/User/searchIdPw"></exclude-mapping>
 			<beans:ref bean="AuthLoginInterceptor" />
 		</interceptor>
 	</interceptors>

@@ -2,9 +2,10 @@ package com.exhibition.VO;
 
 public class Reply_VO {
 	int rc_no = 0;
-	int rno = 0;
+	int r_no = 0;
 	String author = null;
 	String cmt = null;
+	String date = null;
 
 	public int getRc_no() {
 		return rc_no;
@@ -14,12 +15,12 @@ public class Reply_VO {
 		this.rc_no = rc_no;
 	}
 
-	public int getRno() {
-		return rno;
+	public int getR_no() {
+		return r_no;
 	}
 
-	public void setRno(int rno) {
-		this.rno = rno;
+	public void setR_no(int rno) {
+		this.r_no = rno;
 	}
 
 	public String getAuthor() {
