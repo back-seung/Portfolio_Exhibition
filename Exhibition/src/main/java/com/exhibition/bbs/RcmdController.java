@@ -36,6 +36,8 @@ public class RcmdController {
 	public String rcmdInsert(Rcmd_VO rcmdVO, MultipartFile file) throws Exception {
 		if (file.getOriginalFilename() == "") {
 			System.out.println("첨부파일 X");
+			rcmdVO.setFileName("none");
+			rcmdVO.setThumbFileName("none");
 		} else {
 			System.out.println("첨부파일O");
 			String r_FileName = fileDataUtil.fileUpload(file);
@@ -49,13 +51,14 @@ public class RcmdController {
 
 	// 리스트 가져오기
 	@RequestMapping(value = "/viewList", method = RequestMethod.GET)
-	public String viewList(@ModelAttribute Paging_VO pagingVO, Model model, Rcmd_VO rcmdVO) throws Exception {
+	public String viewList(@ModelAttribute Paging_VO pagingVO, Model model) throws Exception {
 		if (pagingVO.getPage() == null) {
 			pagingVO.setPage(1);
 		}
 		pagingVO.setPerPageNum(10);
 		pagingVO.setTotalCount(service.rcmdCnt());
-		model.addAttribute("rcmdList", service.selectAll(rcmdVO));
+		model.addAttribute("rcmdList", service.selectAll(pagingVO));
+		model.addAttribute("pagingVO", pagingVO);
 		return "BBS/SelectAll";
 	}
 

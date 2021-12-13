@@ -26,16 +26,19 @@
 	<nav class="navbar navbar-default">
 		<div class="container-fluid">
 			<div class="navbar-header">
-				<a class="navbar-brand" href="/html/viewList.html">Exhibition
+				<a class="navbar-brand" href="${pageContext.request.contextPath}/">Exhibition
 					Recommend</a>
 			</div>
-			<div class="collapse navbar-collapse"
-				id="bs-example-navbar-collapse-1">
+			<div class="collapse navbar-collapse">
 				<ul class="nav navbar-nav navbar-right">
-					<li><a href="/html/selectAll.html">VIEW LIST</a></li>
-					<!-- MOD USER-->
-					<li><a href="#">MY PAGE</a></li>
-					<li><a href="/html/login.html">LOG OUT</a></li>
+					<li><a>${sessionScope.userName}님 </a></li>
+					<li><input type="hidden" name="id"
+						value="${sessionScope.userName}" /></li>
+					<li><a href="viewList">VIEW LIST</a></li>
+					<li><a href="userMyPageForm?id=${sessionScope.userId}">MY
+							PAGE</a></li>
+					<li></li>
+					<li><a href="logout">LOG OUT</a></li>
 				</ul>
 			</div>
 		</div>
@@ -68,19 +71,23 @@
 	<div class="text-center">
 		<nav>
 			<ul class="pagination">
-				<li><a href="#" aria-label="Previous"> <span
-						aria-hidden="true">&laquo;</span>
-				</a></li>
-				<li><a href="#">1</a></li>
-				<li><a href="#">2</a></li>
-				<li><a href="#">3</a></li>
-				<li><a href="#">4</a></li>
-				<li><a href="#">5</a></li>
-				<li><a href="#" aria-label="Next"> <span aria-hidden="true">&raquo;</span>
-				</a></li>
+
+				<li><c:if test="${pagingVO.prev}">
+						<a href="viewList?page=${pagingVO.startPage-1} "
+							aria-label="Previous" class="prevpage  pbtn"> Previous </a>
+					</c:if></li>
+				<li><c:forEach begin="${pagingVO.startPage}"
+						end="${pagingVO.endPage}" var="idx">
+						<a href="viewList?page=${idx}">${idx}</a>
+					</c:forEach></li> 	
+				<li><c:if test="${pagingVO.next}">
+						<a href="viewList?page=${pagingVO.endPage+1}" aria-label="Next"
+							class="nextpage  pbtn">Next</a>
+					</c:if></li>
 			</ul>
 		</nav>
-		<a class="btn btn-default" href="${pageContext.request.contextPath}/">처음으로</a>
+		<a class="btn btn-default" href="rcmdInsertForm">글 작성</a> <a
+			class="btn btn-default" href="${pageContext.request.contextPath}/">처음으로</a>
 	</div>
 </body>
 </html>

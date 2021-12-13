@@ -31,16 +31,14 @@
 					<li><a>${sessionScope.userName}님 </a></li>
 					<li><input type="hidden" name="id"
 						value="${sessionScope.userName}" /></li>
-					<li><a href="#">VIEW LIST</a></li>
+					<li><a href="viewList">VIEW LIST</a></li>
 					<li><a href="userMyPageForm?id=${sessionScope.userId}">MY
 							PAGE</a></li>
 					<li></li>
 					<li><a href="logout">LOG OUT</a></li>
 				</ul>
 			</div>
-			<!-- /.navbar-collapse -->
 		</div>
-		<!-- /.container-fluid -->
 	</nav>
 	<form action="noticeInput" method="post">
 		<div class="col-md-offset-5 col-md-2 text-center">

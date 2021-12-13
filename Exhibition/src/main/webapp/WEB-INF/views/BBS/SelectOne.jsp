@@ -23,6 +23,11 @@
 	margin-top: 20%;
 	margin-bottom: 5%;
 }
+
+.item {
+	width: 50%;
+	height: 50%;
+}
 </style>
 <title>Document</title>
 </head>
@@ -39,7 +44,7 @@
 						<li><a>${sessionScope.userName}님 </a></li>
 						<li><input type="hidden" name="author"
 							value="${sessionScope.userName}" /></li>
-						<li><a href="rcmdInsertForm">VIEW LIST</a></li>
+						<li><a href="viewList">VIEW LIST</a></li>
 						<li><a href="userMyPageForm?id=${sessionScope.userId}">MY
 								PAGE</a></li>
 						<li></li>
@@ -48,9 +53,11 @@
 				</div>
 			</div>
 		</nav>
-		<div class="col-sm-12 col-md-12 item">
-				<input type="hidden" name="rc_no" value="${rcmd.rc_no}"/>
-				<img class="img" src="<c:url value="/img/${rcmd.thumbFileName}"/>" />
+
+		<div class="col-sm-2 col-md-2 col-md-offset-3 item text-center">
+			<div class="thumbnail">
+				<input type="hidden" name="rc_no" value="${rcmd.rc_no}" /> <img
+					class="img" src="<c:url value="/img/${rcmd.thumbFileName}"/>" />
 				<h2>
 					${rcmd.city }
 					<hr />
@@ -69,33 +76,23 @@
 		<div class="col-md-12 text-center">
 			<table class="table table-striped">
 				<tr class="table">
-					<td class="col-md-1">#NO
 					<td class="col-md-8">댓글</td>
 					<td class="col-md-1">글쓴이</td>
+					<td class="col-md-1">수정 / 삭제</td>
 				</tr>
-				<tr>
-					<!-- C:forEach-->
-					<td class="col-md-1">test</td>
-					<td class="col-md-8">test</td>
-					<td class="col-md-1"><a href=""> 수정</a> / <a href="">삭제</a></td>
-				</tr>
-				<c:forEach items="${cmt}" var="cmt" varStatus="status">
+				<c:forEach items="${cmt}" var="cmt">
 					<tr>
-						<td>${status.count}</td>
-						<td>${cmt.cmt}</td>
-						<td></td>
+						<td class="col-md-8">${cmt.cmt}</td>
+						<td class="col-md-1">${cmt.author}</td>
+						<td class="col-md-1"><a href="">수정</a>/<a href="">삭제</a></td>
 					</tr>
 				</c:forEach>
 			</table>
-			<div class="input-group input-group-lg">
-				<input type="text" class="form-control" name="cmt" aria-describedby="sizing-addon1">
-				<span class="input-group-addon" id="sizing-addon1">
-					<input type="submit" class="btn btn-default" value="댓글등록" />
-				</span>
-			</div>
+			<input type="text" class="col-md-11" name="cmt"> <span><input
+				type="submit" class="btn btn-default col-md-1" value="댓글등록" /></span> <a
+				class="btn btn-default" href="${pageContext.request.contextPath}/">처음으로</a>
+		</div>
 	</form>
-	<div class="text-center">
-		<a class="btn btn-default home" href="/html/viewList.html">처음으로</a>
-	</div>
+
 </body>
 </html>

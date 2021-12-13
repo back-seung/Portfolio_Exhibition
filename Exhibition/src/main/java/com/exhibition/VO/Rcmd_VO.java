@@ -10,6 +10,15 @@ public class Rcmd_VO {
 	private String end_d = null;
 	private int cnt = 0;
 	private String thumbFileName = null;
+	private boolean file;
+
+	public boolean isFile() {
+		return file;
+	}
+
+	public void setFile(boolean file) {
+		this.file = file;
+	}
 
 	public String getThumbFileName() {
 		return thumbFileName;

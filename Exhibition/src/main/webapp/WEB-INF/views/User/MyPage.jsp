@@ -31,12 +31,15 @@
 				<a class="navbar-brand" href="${pageContext.request.contextPath}/">Exhibition
 					Recommend</a>
 			</div>
-			<div class="collapse navbar-collapse"
-				id="bs-example-navbar-collapse-1">
+			<div class="collapse navbar-collapse">
 				<ul class="nav navbar-nav navbar-right">
-					<li><a href="/html/selectAll.html">VIEW LIST</a></li>
-					<!-- MOD USER-->
-					<li><a href="userMyPageForm">MY PAGE</a></li>
+					<li><a>${sessionScope.userName}님 </a></li>
+					<li><input type="hidden" name="id"
+						value="${sessionScope.userName}" /></li>
+					<li><a href="viewList">VIEW LIST</a></li>
+					<li><a href="userMyPageForm?id=${sessionScope.userId}">MY
+							PAGE</a></li>
+					<li></li>
 					<li><a href="logout">LOG OUT</a></li>
 				</ul>
 			</div>

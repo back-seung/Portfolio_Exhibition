@@ -1,14 +1,13 @@
 package com.exhibition.DAO;
 
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import javax.inject.Inject;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
+import com.exhibition.VO.Paging_VO;
 import com.exhibition.VO.Rcmd_VO;
 
 @Repository
@@ -28,8 +27,8 @@ public class Rcmd_DAO_Impl implements IF_Rcmd_DAO {
 	}
 
 	@Override
-	public List<Rcmd_VO> selectAll(Rcmd_VO rcmdVO) throws Exception {
-		return session.selectList(mapperQuery + ".selectAll", rcmdVO);
+	public List<Rcmd_VO> selectAll(Paging_VO pagingVO) throws Exception {
+		return session.selectList(mapperQuery + ".selectAll", pagingVO);
 	}
 
 	@Override
@@ -50,6 +49,11 @@ public class Rcmd_DAO_Impl implements IF_Rcmd_DAO {
 	@Override
 	public void deleteRcmd(int rcNo) throws Exception {
 		session.delete(mapperQuery + ".delete", rcNo);
+	}
+
+	@Override
+	public List<Rcmd_VO> selectTop3(Rcmd_VO rcmdVO) throws Exception {
+		return session.selectList(mapperQuery + ".selectTop3", rcmdVO);
 	}
 
 }

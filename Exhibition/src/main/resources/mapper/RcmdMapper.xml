@@ -16,7 +16,17 @@
 		)
 	</insert>
 	<select id="selectAll" resultType="com.exhibition.VO.Rcmd_VO">
-		SELECT * FROM recommend
+		SELECT * FROM
+		(SELECT rownum AS
+		num, r.* FROM
+		(SELECT * FROM recommend ORDER BY rc_no DESC) r)
+		WHERE num
+		BETWEEN #{startNo}+1 AND #{startNo} + #{perPageNum}
+	</select>
+	<select id="selectTop3" resultType="com.exhibition.VO.Rcmd_VO">
+		SELECT * FROM (SELECT * FROM
+		recommend ORDER BY cnt DESC)
+		<![CDATA[WHERE rownum <=3]]>
 	</select>
 	<select id="rcmdCnt" resultType="int">
 		SELECT count(*) from recommend

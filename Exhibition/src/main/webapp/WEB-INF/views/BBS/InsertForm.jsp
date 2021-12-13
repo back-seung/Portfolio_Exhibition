@@ -14,7 +14,7 @@
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css" />
 
-	<script  src="http://code.jquery.com/jquery-latest.min.js"></script>
+<script src="http://code.jquery.com/jquery-latest.min.js"></script>
 <style>
 </style>
 <title>Document</title>
@@ -23,14 +23,18 @@
 	<nav class="navbar navbar-default">
 		<div class="container-fluid">
 			<div class="navbar-header">
-				<a class="navbar-brand" href="${pageContext.request.contextPath}/">Exhibition Recommend</a>
+				<a class="navbar-brand" href="${pageContext.request.contextPath}/">Exhibition
+					Recommend</a>
 			</div>
 			<div class="collapse navbar-collapse">
 				<ul class="nav navbar-nav navbar-right">
 					<li><a>${sessionScope.userName}님 </a></li>
-					<li><input type="hidden" name="id" value="${sessionScope.userName}" /></li>
-					<li><a href="#">VIEW LIST</a></li>
-					<li><a href="userMyPageForm?id=${sessionScope.userId}">MY PAGE</a></li>
+					<li><input type="hidden" name="id"
+						value="${sessionScope.userName}" /></li>
+					<li><a href="viewList">VIEW LIST</a></li>
+					<li><a href="userMyPageForm?id=${sessionScope.userId}">MY
+							PAGE</a></li>
+					<li></li>
 					<li><a href="logout">LOG OUT</a></li>
 				</ul>
 			</div>
@@ -66,22 +70,27 @@
 				<div>
 					<h4>파일</h4>
 					<p>
-						<label for="rcmdImg"></label>
-						<input id="rcmdImg" class="btn btn-default" type="file" name="file">
-						<div class="selectImg"><img src=""/></div>
+						<label for="rcmdImg"></label> <input id="rcmdImg"
+							class="btn btn-default" type="file" name="file">
+					<div class="selectImg">
+						<img src="" />
+					</div>
 					</p>
 					<script>
-					  $("#rcmdImg").change(function(){
-						   if(this.files && this.files[0]) {
-						    var reader = new FileReader;
-						    reader.onload = function(data) {
-						     $(".selectImg img").attr("src", data.target.result).width(500);        
-						    }
-						    reader.readAsDataURL(this.files[0]);
-						   }
-						  });
+						$("#rcmdImg").change(
+								function() {
+									if (this.files && this.files[0]) {
+										var reader = new FileReader;
+										reader.onload = function(data) {
+											$(".selectImg img").attr("src",
+													data.target.result).width(
+													500);
+										}
+										reader.readAsDataURL(this.files[0]);
+									}
+								});
 					</script>
-					<%=request.getRealPath("/") %>
+					<%=request.getRealPath("/")%>
 				</div>
 				<hr>
 				<input type="submit" class="btn btn-default" value="등록" />

@@ -26,14 +26,15 @@
 				<a class="navbar-brand" href="${pageContext.request.contextPath}/">Exhibition
 					Recommend</a>
 			</div>
-
-			<!-- Collect the nav links, forms, and other content for toggling -->
 			<div class="collapse navbar-collapse">
 				<ul class="nav navbar-nav navbar-right">
 					<li><a>${sessionScope.userName}님 </a></li>
-					<li><a href="#">VIEW LIST</a></li>
+					<li><input type="hidden" name="id"
+						value="${sessionScope.userName}" /></li>
+					<li><a href="viewList">VIEW LIST</a></li>
 					<li><a href="userMyPageForm?id=${sessionScope.userId}">MY
 							PAGE</a></li>
+					<li></li>
 					<li><a href="logout">LOG OUT</a></li>
 				</ul>
 			</div>

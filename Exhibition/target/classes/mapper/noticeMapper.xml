@@ -11,16 +11,21 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</insert>
 
 	<select id="selectAll" resultType="com.exhibition.VO.Notice_VO">
-		SELECT * FROM notice ORDER BY n_no DESC
+		SELECT * FROM (SELECT * FROM
+		notice ORDER BY n_no DESC)
+		<![CDATA[WHERE rownum <=3]]>
 	</select>
+	
 	<select id="selectOne" resultType="com.exhibition.VO.Notice_VO">
 		SELECT * FROM notice
-		WHERE n_no = #{n_no}
+		WHERE n_no
+		= #{n_no}
 	</select>
-	<update id ="update">
+	<update id="update">
 		UPDATE notice
 		SET notice = #{notice}
-		WHERE n_no = #{n_no}
+		WHERE n_no =
+		#{n_no}
 	</update>
 	<delete id="delete">
 		DELETE FROM notice
