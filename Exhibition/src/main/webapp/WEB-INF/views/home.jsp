@@ -5,100 +5,107 @@
 <head>
 <meta charset="UTF-8" />
 <title>Exhibition</title>
-<!-- 합쳐지고 최소화된 최신 CSS -->
-<link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" />
-
-<!-- 부가적인 테마 -->
-<link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css" />
-
-<!-- 합쳐지고 최소화된 최신 자바스크립트 -->
-<script
-	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+	rel="stylesheet">
 <style>
 body {
-	background-color: rgb(236, 236, 236);
-}
-
-.header {
-	margin-bottom: 0px;
+	background-color: #BDBDBD;
 }
 
 .font-lg {
 	font-size: large;
 }
-
-.map {
-	border-radius: 3%;
-	border: 1px solid lightgray;
-}
-
-.notice {
-	color: white;
-}
 </style>
 </head>
 <body>
-	<nav class="navbar navbar-default">
+	<nav class="navbar navbar-expand-lg navbar-light bg-light">
 		<div class="container-fluid">
-			<div class="navbar-header">
-				<a class="navbar-brand" href="${pageContext.request.contextPath}/">Exhibition
-					Recommend</a>
-			</div>
+			<a class="navbar-brand" href="${pageContext.request.contextPath}/">Exhibition
+				Recommend</a>
+				<!-- nav 좌측 -->
 			<div class="collapse navbar-collapse">
-				<ul class="nav navbar-nav navbar-right">
-					<li><a>${sessionScope.userName}님 </a></li>
-					<li><input type="hidden" name="id"
-						value="${sessionScope.userName}" /></li>
-					<li><a href="viewList">VIEW LIST</a></li>
-					<li><a href="userMyPageForm?id=${sessionScope.userId}">MY
-							PAGE</a></li>
-					<li></li>
-					<li><a href="logout">LOG OUT</a></li>
-				</ul>
-			</div>
-		</div>
-	</nav>
-	<div class="col-md-12 item">
-		<div class="thumbnail font-lg">
-			<div class="jumbotron text-center header">
-				<h1>Exhibition Recommend</h1>
-			</div>
-			<div class="col-md-12 item">
-				<div class="page-header font-lg">
-					<div class="caption">
-						<ul class="list-group">
-							<span class="badge"><a class="notice" href="noticeList">
-									NOTICE</a></span>
-							<c:forEach var="ntcList" items="${ntcList}">
-								<li class="list-group-item">${ntcList.notice}</li>
-							</c:forEach>
-						</ul>
-					</div>
+				<div class="navbar-nav">
+					<a href="viewList" class="nav-item nav-link">VIEW LIST</a> <a
+						class="nav-item nav-link notice" href="noticeList"> NOTICE</a>
+				</div>
+				<!-- nav 우측 -->
+				<div class="navbar-nav ms-auto">
+					<a class="nav-item nav-link">${sessionScope.userName}님 </a> <a
+						href="userMyPageForm?id=${sessionScope.userId}" class="nav-link">MY
+						PAGE</a> <a href="logout" class="nav-item nav-link">LOG OUT</a>
 				</div>
 			</div>
 		</div>
+	</nav>
+
+	<div class="col-md-12 item mt-3 mb-3">
+		<ul class="list-group">
+			<h2>NOTICE</h2>
+			<c:forEach var="ntcList" items="${ntcList}">
+				<li class="list-group-item"><span class="badge bg-secondary">
+						공지</span>&nbsp;${ntcList.notice}</li>
+			</c:forEach>
+		</ul>
 	</div>
-	
-	<c:forEach items="${rcmd}" var="rcmd">
-		<div class="col-sm-2 col-md-2 item">
-			<span class="badge">HOT🔥  ${rcmd.cnt}</span>
-			<div class="thumbnail">
-				<img class="img" src="<c:url value="/img/${rcmd.thumbFileName}"/>" />
-				<h2>
-					${rcmd.city}
-					<hr />
-					<small><a href="#">${rcmd.title}</a></small>
-				</h2>
-				<div class="caption">${rcmd.info}</div>
-				<hr />
-				<div class="caption">${rcmd.begin_d}~ ${rcmd.end_d}</div>
+	<div id="carouselExampleIndicators" class="carousel slide mb-5"
+		data-bs-ride="carousel">
+		<div class="carousel-indicators">
+			<button type="button" data-bs-target="#carouselExampleIndicators"
+				data-bs-slide-to="0" class="active" aria-current="true"
+				aria-label="Slide 1"></button>
+			<button type="button" data-bs-target="#carouselExampleIndicators"
+				data-bs-slide-to="1" aria-label="Slide 2"></button>
+			<button type="button" data-bs-target="#carouselExampleIndicators"
+				data-bs-slide-to="2" aria-label="Slide 3"></button>
+		</div>
+		<div class="carousel-inner">
+			<div class="carousel-item active">
+				<img src="<c:url value="/img/1.jpg"/>" class="d-inline w-100"
+					alt="...">
+			</div>
+			<div class="carousel-item">
+				<img src="<c:url value="/img/2.jpg"/>" class="d-inline w-100"
+					alt="...">
+			</div>
+			<div class="carousel-item">
+				<img src="<c:url value="/img/3.jpg"/>" class="d-inline w-100"
+					alt="...">
 			</div>
 		</div>
-	</c:forEach>	
-	<span class="badge">YOUR CURRENT POS</span>
-	<div class="map col-md-offset-3" style="width: 48%; height: 70%"></div>
+	</div>
+	<div class="row row-cols-1 row-cols-md-4 g-4">
+		<c:forEach items="${rcmd}" var="rcmd">
+			<div class="col-md-2">
+				<span class="badge bg-secondary"> views 🔥 : ${rcmd.cnt}</span>
+				<div class="card h-100 c">
+					<img src="<c:url value="/img/${rcmd.thumbFileName}"/>"
+						class="card-img-top">
+					<div class="card-body">
+						<h5 class="card-title"></h5>
+						${rcmd.city}
+						<hr>
+						<small class="fw-bolder">${rcmd.title}</small>
+						<p class="card-text">${rcmd.info}</p>
+					</div>
+					<div class="card-footer">
+						<small class="text-muted">${rcmd.begin_d}~${rcmd.end_d}</small>
+					</div>
+				</div>
+			</div>
+		</c:forEach>
+		<div class="col-md-6">
+			<span class="badge bg-secondary">YOUR CURRENT POS</span>
+			<div class="card h-100 c">
+				<div class="card-body">
+					<div class="card-title">
+						<div class="map card h-100"></div>
+					</div>
+				</div>
+			</div>
+
+		</div>
+	</div>
 	<script type="text/javascript"
 		src="//dapi.kakao.com/v2/maps/sdk.js?appkey=c5560b6913a89c394b9ccac44ec1aa38&libraries=services"></script>
 	<script>
@@ -151,7 +158,8 @@ body {
 			map.setCenter(locPosition);
 		}
 	</script>
-	
+	<script
+		src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
 

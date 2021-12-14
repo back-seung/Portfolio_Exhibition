@@ -7,17 +7,9 @@
 <meta charset="UTF-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<!-- 합쳐지고 최소화된 최신 CSS -->
-<link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" />
-
-<!-- 부가적인 테마 -->
-<link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css" />
-
-<!-- 합쳐지고 최소화된 최신 자바스크립트 -->
-<script
-	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+	rel="stylesheet">
 <style>
 .home {
 	margin-top: 20%;
@@ -33,27 +25,25 @@
 </head>
 <body>
 	<form action="ReplyInsert" method="post">
-		<nav class="navbar navbar-default">
-			<div class="container-fluid">
-				<div class="navbar-header">
-					<a class="navbar-brand" href="${pageContext.request.contextPath}/">Exhibition
-						Recommend</a>
+	<nav class="navbar navbar-expand-lg navbar-light bg-light">
+		<div class="container-fluid">
+			<a class="navbar-brand" href="${pageContext.request.contextPath}/">Exhibition
+				Recommend</a>
+				<!-- nav 좌측 -->
+			<div class="collapse navbar-collapse">
+				<div class="navbar-nav">
+					<a href="viewList" class="nav-item nav-link">VIEW LIST</a>
+					<a class="nav-item nav-link notice" href="noticeList"> NOTICE</a>
 				</div>
-				<div class="collapse navbar-collapse">
-					<ul class="nav navbar-nav navbar-right">
-						<li><a>${sessionScope.userName}님 </a></li>
-						<li><input type="hidden" name="author"
-							value="${sessionScope.userName}" /></li>
-						<li><a href="viewList">VIEW LIST</a></li>
-						<li><a href="userMyPageForm?id=${sessionScope.userId}">MY
-								PAGE</a></li>
-						<li></li>
-						<li><a href="logout">LOG OUT</a></li>
-					</ul>
+				<!-- nav 우측 -->
+				<div class="navbar-nav ms-auto">
+					<a class="nav-item nav-link">${sessionScope.userName}님 </a>
+					<a href="userMyPageForm?id=${sessionScope.userId}" class="nav-link">MY PAGE</a>
+					<a href="logout" class="nav-item nav-link">LOG OUT</a>
 				</div>
 			</div>
-		</nav>
-
+		</div>
+	</nav>
 		<div class="col-sm-2 col-md-2 col-md-offset-3 item text-center">
 			<div class="thumbnail">
 				<input type="hidden" name="rc_no" value="${rcmd.rc_no}" /> <img
