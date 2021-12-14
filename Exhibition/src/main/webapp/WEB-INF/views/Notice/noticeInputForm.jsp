@@ -41,5 +41,7 @@
 				<a href="${pageContext.request.contextPath}/"><input type="button" class="btn btn-default" value="뒤로가기" /></a>
 		</div>
 	</form>
+	<script
+		src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
