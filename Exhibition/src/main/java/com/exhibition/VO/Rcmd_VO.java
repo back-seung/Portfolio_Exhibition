@@ -10,14 +10,24 @@ public class Rcmd_VO {
 	private String end_d = null;
 	private int cnt = 0;
 	private String thumbFileName = null;
-	private boolean file;
 
-	public boolean isFile() {
-		return file;
+	private String type = null;
+	private String keyWord = null;
+
+	public String getType() {
+		return type;
 	}
 
-	public void setFile(boolean file) {
-		this.file = file;
+	public void setType(String type) {
+		this.type = type;
+	}
+
+	public String getKeyWord() {
+		return keyWord;
+	}
+
+	public void setKeyWord(String keyWord) {
+		this.keyWord = keyWord;
 	}
 
 	public String getThumbFileName() {

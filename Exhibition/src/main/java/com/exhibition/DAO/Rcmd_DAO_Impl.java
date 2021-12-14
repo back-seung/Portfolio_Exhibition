@@ -56,4 +56,9 @@ public class Rcmd_DAO_Impl implements IF_Rcmd_DAO {
 		return session.selectList(mapperQuery + ".selectTop3", rcmdVO);
 	}
 
+	@Override
+	public List<Rcmd_VO> getSearchList(Rcmd_VO searchVO) throws Exception {
+		return session.selectList(mapperQuery + ".getSearchList", searchVO);
+	}
+
 }

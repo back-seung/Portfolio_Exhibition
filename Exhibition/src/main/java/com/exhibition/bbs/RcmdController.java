@@ -1,13 +1,17 @@
 package com.exhibition.bbs;
 
+import java.util.List;
+
 import javax.inject.Inject;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.exhibition.Service.IF_Rcmd_Service;
@@ -94,4 +98,18 @@ public class RcmdController {
 		return "redirect:/viewList";
 	}
 
+	// 검색
+	@GetMapping("viewList/getSearchList")
+	@ResponseBody
+	public List<Rcmd_VO> getSearchList(@RequestParam("type") String type, @RequestParam("keyWord") String keyWord)
+			throws Exception {
+		Rcmd_VO searchVO = new Rcmd_VO();
+		if (type != "" && keyWord != "") {
+			searchVO.setType(type);
+			searchVO.setKeyWord(keyWord);
+		} else {
+			return null;
+		}
+		return service.getSearchList(searchVO);
+	}
 }

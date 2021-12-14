@@ -51,4 +51,9 @@ public class Rcmd_Service_Impl implements IF_Rcmd_Service {
 		return rcmdDAO.selectTop3(rcmdVO);
 	}
 
+	@Override
+	public List<Rcmd_VO> getSearchList(Rcmd_VO searchVO) throws Exception {
+		return rcmdDAO.getSearchList(searchVO);
+	}
+
 }

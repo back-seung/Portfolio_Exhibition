@@ -7,6 +7,7 @@
 <meta charset="UTF-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <link
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
 	rel="stylesheet">
@@ -34,11 +35,19 @@
 			</div>
 		</div>
 	</nav>
-<div class="input-group mb-3">
-  <input type="text" class="form-control" placeholder="검색할 내용 입력">
-  <button class="btn btn-outline-secondary" type="button" id="button-addon2">SEARCH</button>
-</div>
-	<table class="table table-hover">
+	<form name="search-Form" autocomplete="off">
+		<div class="input-group mb-3">
+			<select name="type">
+				<option selected value="">검색 내용 선택</option>
+				<option value="city">도시</option>
+				<option value="title">제목</option>
+			</select> <input type="text" class="form-control" name="keyWord"
+				placeholder="검색할 내용 입력"> <input type="button"
+				onclick="getSearchList()" class="btn btn-outline-secondary"
+				value="SEARCH">
+		</div>
+	</form>
+	<table class="table table-hover myTable">
 		<thead>
 			<tr>
 				<th>#NO</th>
@@ -48,8 +57,8 @@
 				<th>조회수</th>
 			</tr>
 		</thead>
-		<tbody>
-			<c:forEach var="rcmd" items="${rcmdList}" varStatus="status">
+		<c:forEach var="rcmd" items="${rcmdList}" varStatus="status">
+			<tbody>
 				<tr>
 					<td>${status.count}</td>
 					<td>${rcmd.city}</td>
@@ -57,33 +66,54 @@
 					<td>${rcmd.begin_d}~${rcmd.end_d}</td>
 					<td>${rcmd.cnt}</td>
 				</tr>
-			</c:forEach>
-		</tbody>
+			</tbody>
+		</c:forEach>
 	</table>
-		<nav>
-			<ul class="pagination justify-content-center">
-				<li class="page-item">
-					<c:if test="${pagingVO.prev}">
-						<a href="viewList?page=${pagingVO.startPage-1}" aria-label="Previous" class="page-link"> Previous </a>
-					</c:if>
-				</li>
-				<li class="page-item">
-					<c:forEach begin="${pagingVO.startPage}" end="${pagingVO.endPage}" var="idx">
-						<a href="viewList?page=${idx}" class="page-link">${idx}</a>
-					</c:forEach>
-				</li>
-				<li class="page-item">
-					<c:if test="${pagingVO.next}">
-						<a href="viewList?page=${pagingVO.endPage+1}" aria-label="Next" class="page-link">Next</a>
-					</c:if>
-				</li>
-			</ul>
-		</nav>
+	<nav>
+		<ul class="pagination justify-content-center">
+			<li class="page-item"><c:if test="${pagingVO.prev}">
+					<a href="viewList?page=${pagingVO.startPage-1}"
+						aria-label="Previous" class="page-link"> Previous </a>
+				</c:if></li>
+			<li class="page-item"><c:forEach begin="${pagingVO.startPage}"
+					end="${pagingVO.endPage}" var="idx">
+					<a href="viewList?page=${idx}" class="page-link">${idx}</a>
+				</c:forEach></li>
+			<li class="page-item"><c:if test="${pagingVO.next}">
+					<a href="viewList?page=${pagingVO.endPage+1}" aria-label="Next"
+						class="page-link">Next</a>
+				</c:if></li>
+		</ul>
+	</nav>
 	<div class="text-center">
 		<a class="btn btn-secondary" href="rcmdInsertForm">글 작성</a> <a
 			class="btn btn-secondary" href="${pageContext.request.contextPath}/">처음으로</a>
 	</div>
 	<script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+	<script>
+		function getSearchList() {
+			$.ajax({
+				type : 'GET',
+				url : "viewList/getSearchList",
+				data : $("form[name=search-Form]").serialize(),
+				success : function(result){
+					$('.myTable > tbody').empty();
+					if(result.length >= 1) {
+						result.forEach(function(item){
+							str='<tr>'
+							str += "<td>"+item.city+"</td>";
+							str += "<td>"+item.title+"</td>";
+							str += "<td>"+item.begin_d + "~" + item.end_d + "</td>";
+							str += "<td>"+item.cnt+"</td>";
+							$('.myTable').append(str);
+						})						
+					} else if(result == ""){
+						alert("값이 없습니다.");
+					}
+				}
+			})
+		}
+	</script>
 </body>
 </html>

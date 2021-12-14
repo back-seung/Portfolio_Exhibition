@@ -21,4 +21,6 @@ public interface IF_Rcmd_Service {
 
 	public List<Rcmd_VO> selectTop3(Rcmd_VO rcmdVO) throws Exception;
 
+	public List<Rcmd_VO> getSearchList(Rcmd_VO searchVO) throws Exception;
+
 }

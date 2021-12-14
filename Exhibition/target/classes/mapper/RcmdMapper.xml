@@ -35,6 +35,19 @@
 		SELECT * FROM recommend WHERE
 		rc_no = #{rc_no}
 	</select>
+	<!-- parameterType="com.exhibition.VO.Rcmd_VO" -->
+	<select id="getSearchList"
+		resultType="com.exhibition.VO.Rcmd_VO">
+		SELECT * FROM recommend
+		<choose>
+			<when test="type != null and type == 'city'">
+				WHERE city LIKE #{keyWord}
+			</when>
+			<when test="type != null and type == 'title'">
+				WHERE title LIKE #{keyWord}
+			</when>
+		</choose>
+	</select>
 	<update id="updateCnt">
 		UPDATE recommend SET cnt = cnt + 1
 		WHERE rc_no =
