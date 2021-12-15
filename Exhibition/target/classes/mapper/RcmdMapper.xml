@@ -41,10 +41,10 @@
 		SELECT * FROM recommend
 		<choose>
 			<when test="type != null and type == 'city'">
-				WHERE city LIKE #{keyWord}
+				WHERE city LIKE '%'||#{keyWord}||'%'
 			</when>
 			<when test="type != null and type == 'title'">
-				WHERE title LIKE #{keyWord}
+				WHERE title LIKE '%'||#{keyWord}||'%'
 			</when>
 		</choose>
 	</select>

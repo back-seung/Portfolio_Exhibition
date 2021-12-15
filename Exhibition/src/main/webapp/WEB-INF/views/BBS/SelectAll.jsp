@@ -98,8 +98,8 @@
 				url : "viewList/getSearchList",
 				data : $("form[name=search-Form]").serialize(),
 				success : function(result){
-					$('.myTable > tbody').empty();
 					if(result.length >= 1) {
+						$('.myTable > tbody').empty();
 						result.forEach(function(item){
 							str='<tr>'
 							str += "<td>"+item.city+"</td>";

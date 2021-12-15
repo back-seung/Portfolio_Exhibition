@@ -1,10 +1,20 @@
 package com.exhibition.VO;
 
 public class User_VO {
+
 	int u_no = 0;
 	String id = null;
 	String pw = null;
 	String name = null;
+	String email = null;
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
 
 	public int getU_no() {
 		return u_no;
