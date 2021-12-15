@@ -1,11 +1,11 @@
 package com.exhibition.VO;
 
 public class Reply_VO {
-	int rc_no = 0;
-	int r_no = 0;
-	String author = null;
-	String cmt = null;
-	String date = null;
+	private int rc_no = 0;
+	private int r_no = 0;
+	private String author = null;
+	private String cmt = null;
+	private String date = null;
 
 	public int getRc_no() {
 		return rc_no;

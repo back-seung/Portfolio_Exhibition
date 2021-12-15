@@ -24,30 +24,36 @@ body {
 	border-radius: 3%;
 	opacity: 75%;
 	border-radius: 10%;
-	margin-top: 10%;
+	margin-top: 5%;
 }
 </style>
 </head>
 <body>
 	<div class="text-center">
-		<h1 class="display-1 fw-bolder">Register</h1>/h1>
+		<h1 class="display-1 fw-bolder">Register</h1>
 		<hr>
 		<form action="userRegister" method="post">
 			<div class="col-md-4 offset-md-4 shadow-lg inputForm">
 				<div class="mt-4 p-4">
-					<h2 class="display-3 fw-bolder">ID/PW 찾기</h2>
-					<hr>
 					<div class="col-sm-12">
 						<label>Name</label> <input type="text" class="form-control"
 							name="name" value="">
 					</div>
 					<div class="col-sm-12">
-						<label class="form-label">PW</label> <input type="email"
+						<label class="form-label">PW</label> <input id="pw1"
+							type="password" class="form-control" name="email">
+					</div>
+					<div class="col-sm-12">
+						<label class="form-label">PW CHECK</label> <input id="pw2"
+							type="password" class="form-control" name="email">
+					</div>
+					<div class="col-sm-12">
+						<label class="form-label">E-mail</label> <input type="email"
 							class="form-control" name="email">
 					</div>
 					<p>
-						<input type="button" class="btn btn-secondary mt-3"
-							onclick="findIdPw()" value="SEARCH">
+						<input type="submit" class="btn btn-secondary mt-3"
+							onclick="checkRegex()" value="SEARCH">
 					</p>
 				</div>
 			</div>

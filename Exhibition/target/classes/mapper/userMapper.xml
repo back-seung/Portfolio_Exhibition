@@ -16,9 +16,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</select>
 	<select id="search" resultType="com.exhibition.VO.User_VO">
 		SELECT * FROM myUser WHERE
-		name =
-		#{name}
-		AND email = #{email}
+		email =
+		#{email}
 	</select>
 	<update id="update">
 		UPDATE myUser

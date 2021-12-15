@@ -1,8 +1,8 @@
 package com.exhibition.VO;
 
 public class Notice_VO {
-	int n_no = 0;
-	String notice = null;
+	private int n_no = 0;
+	private String notice = null;
 
 	public int getN_no() {
 		return n_no;

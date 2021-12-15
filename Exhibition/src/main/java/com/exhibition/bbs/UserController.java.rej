@@ -1,0 +1,12 @@
+diff a/Exhibition/src/main/java/com/exhibition/bbs/UserController.java b/Exhibition/src/main/java/com/exhibition/bbs/UserController.java	(rejected hunks)
+@@ -43,10 +43,6 @@
+ 	}
+ 
+ 	// 아이디 비밀번호 찾기 처리
+-	@RequestMapping(value = "/userSearch", method = RequestMethod.GET)
+-	public String userSearch(Model model, @RequestParam("name") String name) throws Exception {
+-		model.addAttribute("user", service.searchUser(name));
+-		return "User/searchIdPw";
+ 	@GetMapping(value = "userSearchIdPwForm/userSearch")
+ 	@ResponseBody
+ 	public User_VO userSearch(@RequestParam("name") String name, @RequestParam("email") String email) throws Exception {
