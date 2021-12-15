@@ -7,6 +7,15 @@ public class User_VO {
 	String pw = null;
 	String name = null;
 	String email = null;
+	String reg_Date = null;
+
+	public String getReg_Date() {
+		return reg_Date;
+	}
+
+	public void setReg_Date(String reg_Date) {
+		this.reg_Date = reg_Date;
+	}
 
 	public String getEmail() {
 		return email;

@@ -12,6 +12,6 @@ public interface IF_User_DAO {
 
 	public void userDel(String id) throws Exception;
 
-	public User_VO searchUser(String name) throws Exception;
+	public User_VO searchUser(User_VO searchUser) throws Exception;
 
 }

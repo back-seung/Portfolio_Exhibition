@@ -14,52 +14,56 @@
 <style>
 body {
 	background-color: #BDBDBD;
+	color: #F5F5F5;
 }
 
 .inputForm {
-	margin-top: 10%; border-radius : 3%;
-	opacity: 75%;
+	background-color: #9E9E9E;
+	margin-top: 10%;
 	border-radius: 3%;
-}
-
-.home {
+	opacity: 75%;
+	border-radius: 10%;
 	margin-top: 10%;
 }
 </style>
 <title>Document</title>
 </head>
 <body>
-	<div class="card text-center col-md-4 offset-md-4 shadow-lg inputForm">
-		<form name="getUserIdPw">
-			<h2>ID / PW 찾기</h2>
-			<div class="caption">이름과 이메일을 입력해주세요</div>
-			<div class="form-floating mb-3">
-				<input type="email" class="form-control" name="name"
-					placeholder="name"> <label for="floatingInput">Name
-					입력</label>
-			</div>
-			<div class="form-floating mb-3">
-				<input type="email" class="form-control" name="email"
-					placeholder="name@example.com"> <label for="floatingInput">Email
-					입력</label>
-			</div>
-			<input type="button" class="btn btn-secondary" onclick="findIdPw()"
-				value="SEARCH">
-		</form>
-		<div class="	result-Form">
-			<div class="caption">검색결과 입니다.</div>
-			<h3>
-				회원님의 ID : <strong>${user.id}</strong>
-			</h3>
-			<hr>
-			<h3>
-				회원님의 PW : <strong>${user.pw}</strong>
-			</h3>
-		</div>
-	</div>
 	<div class="text-center">
-		<a class="btn btn-secondary home"
-			href="${pageContext.request.contextPath}/">처음으로</a>
+		<div class="inputForm col-md-4 offset-md-4 shadow-lg">
+			<div class="mt-4 p-4">
+				<form name="getUserIdPw">
+					<h2 class="display-3 fw-bolder">ID/PW 찾기</h2>
+					<hr>
+					<div class="col-sm-12">
+						<label>NAME</label> <input type="text" class="form-control"
+							name="name" value="">
+					</div>
+					<div class="col-sm-12">
+						<label class="form-label">PW</label> <input type="email"
+							class="form-control" name="email">
+					</div>
+					<p>
+						<input type="button" class="btn btn-secondary mt-3"
+							onclick="findIdPw()" value="SEARCH">
+					</p>
+				</form>
+			</div>
+			<hr>
+			<div class="resultForm">
+				<div>
+					<h5>id는</h5>
+					<div>dddasdas</div>
+					<h5>pw는</h5>
+					<div>dddasdas</div>
+					<a class="btn btn-secondary mt-3 mb-3" href="login">LOGIN 이동</a>
+				</div>
+			</div>
+		</div>
+		<div class="text-center">
+			<a class="btn btn-secondary mt-3"
+				href="${pageContext.request.contextPath}/">처음으로</a>
+		</div>
 	</div>
 	<script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
@@ -67,15 +71,25 @@ body {
 		function findIdPw() {
 			$.ajax({
 				type : 'GET',
-				url : "userSearchIdPwForm/getSearchIdPw",
+				url : "userSearchIdPwForm/userSearch",
 				data : $("form[name=getUserIdPw]").serialize(),
 				success : function(result) {
-					if (result != "") {
-						$('#idForm > strong').empty();
-						$('#pwForm > strong').empty();
-						result.forEach(function(item)){
-							str = 
-						}
+					if (result != null) {
+						$('.resultForm > div').empty();
+						result.forEach(function(item){
+							str = '<div>';
+							str += '<h5>'+"YOUR ID : "+'<h5>';
+							str += '<div>'+item.id+'</div>'; 
+							str += '<h5>' + "YOUR PW : " + '<h5>';
+							str += '<div>' + item.pw + '</div>';
+							str += '<a class="btn btn-secondary mt-3 mb-3" href="login">' + "LOGIN 이동" + '</a>';
+							str += '</div>';
+							$('.resultForm').append(str);
+					} else {
+						str = 'div';
+						str += '<h2>'+"일치하는 값을 찾지 못했습니다"+'</h2>'
+						str += '</div>';
+						$('.resultForm').append(str);
 					}
 				}
 			})

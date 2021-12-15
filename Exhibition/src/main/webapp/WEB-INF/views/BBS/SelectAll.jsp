@@ -105,7 +105,7 @@
 							str += "<td>"+item.city+"</td>";
 							str += "<td>"+item.title+"</td>";
 							str += "<td>"+item.begin_d + "~" + item.end_d + "</td>";
-							str += "<td>"+item.cnt+"</td>";
+							str += "<td>"+item.cnt+"</td></tr>";
 							$('.myTable').append(str);
 						})						
 					} else if(result == ""){

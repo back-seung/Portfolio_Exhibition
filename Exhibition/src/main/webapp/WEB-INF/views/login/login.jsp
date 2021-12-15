@@ -18,6 +18,7 @@ body {
 
 .login-form {
 	background-color: #9E9E9E;
+	opacity: 75%;
 	border-radius: 15%;
 }
 
@@ -38,7 +39,7 @@ body {
 							name="id" value="">
 					</div>
 					<div class="col-sm-12">
-						<label class="form-label">PW</label> <input type="text"
+						<label class="form-label">PW</label> <input type="password"
 							class="form-control" name="pw" value="">
 					</div>
 					<p>

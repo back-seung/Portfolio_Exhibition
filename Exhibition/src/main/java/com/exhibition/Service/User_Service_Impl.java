@@ -33,8 +33,8 @@ public class User_Service_Impl implements IF_User_Service {
 	}
 
 	@Override
-	public User_VO searchUser(String name) throws Exception {
-		return userDAO.searchUser(name);
+	public User_VO searchUser(User_VO searchUser) throws Exception {
+		return userDAO.searchUser(searchUser);
 	}
 
 }

@@ -6,7 +6,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<insert id="insert">
 		INSERT INTO myUser values(
 		seq_user.nextval, #{id},
-		#{name}, #{pw}
+		#{name}, #{pw}, #{email}, default
 		)
 	</insert>
 	<select id="selectOne" resultType="com.exhibition.VO.User_VO">
@@ -18,6 +18,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		SELECT * FROM myUser WHERE
 		name =
 		#{name}
+		AND email = #{email}
 	</select>
 	<update id="update">
 		UPDATE myUser

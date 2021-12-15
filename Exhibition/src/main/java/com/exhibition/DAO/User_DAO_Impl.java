@@ -37,8 +37,8 @@ public class User_DAO_Impl implements IF_User_DAO {
 	}
 
 	@Override
-	public User_VO searchUser(String name) throws Exception {
-		return session.selectOne(mapperquery + ".search", name);
+	public User_VO searchUser(User_VO searchUser) throws Exception {
+		return session.selectOne(mapperquery + ".search", searchUser);
 	}
 
 }
