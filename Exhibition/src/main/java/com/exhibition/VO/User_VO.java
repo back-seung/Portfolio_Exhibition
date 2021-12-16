@@ -2,12 +2,12 @@ package com.exhibition.VO;
 
 public class User_VO {
 
-	int u_no = 0;
-	String id = null;
-	String pw = null;
-	String name = null;
-	String email = null;
-	String reg_Date = null;
+	private int u_no = 0;
+	private String id = null;
+	private String pw = null;
+	private String name = null;
+	private String email = null;
+	private String reg_Date = null;
 
 	public String getReg_Date() {
 		return reg_Date;

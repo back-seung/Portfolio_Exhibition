@@ -32,7 +32,7 @@ body {
 	<div class="text-center">
 		<div class="inputForm col-md-4 offset-md-4 shadow-lg">
 			<div class="mt-4 p-4">
-				<form name="getUserIdPw">
+				<form action="userSearch" method="get">
 					<h2 class="display-3 fw-bolder">ID/PW 찾기</h2>
 					<hr>
 					<div class="col-sm-12">
@@ -40,60 +40,42 @@ body {
 							name="name" value="">
 					</div>
 					<div class="col-sm-12">
-						<label class="form-label">PW</label> <input type="email"
+						<label class="form-label">E-mail</label> <input type="text"
 							class="form-control" name="email">
 					</div>
 					<p>
-						<input type="button" class="btn btn-secondary mt-3"
-							onclick="findIdPw()" value="SEARCH">
+						<input type="submit" class="btn btn-secondary mt-3" value="SEARCH">
 					</p>
 				</form>
 			</div>
-			<hr>
-			<div class="resultForm">
-				<div>
-					<h5>id는</h5>
-					<div>dddasdas</div>
-					<h5>pw는</h5>
-					<div>dddasdas</div>
-					<a class="btn btn-secondary mt-3 mb-3" href="login">LOGIN 이동</a>
-				</div>
-			</div>
-		</div>
-		<div class="text-center">
-			<a class="btn btn-secondary mt-3"
-				href="${pageContext.request.contextPath}/">처음으로</a>
 		</div>
 	</div>
 	<script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 	<script>
-		function findIdPw() {
-			$.ajax({
-				type : 'GET',
+		
+	</script>
+	<!--		<script>
+			function findIdPw() {
+				$.ajax({
 				url : "userSearchIdPwForm/userSearch",
-				data : $("form[name=getUserIdPw]").serialize(),
-				success : function(result) {
-					if (result != null) {
+				type : 'POST',
+				data : $('form[name=getUserIdPw]').serialize(),
+				success : function(data) {
+						alert(data.id + "" +data.pw);
 						$('.resultForm > div').empty();
-						result.forEach(function(item){
-							str = '<div>';
-							str += '<h5>'+"YOUR ID : "+'<h5>';
-							str += '<div>'+item.id+'</div>'; 
-							str += '<h5>' + "YOUR PW : " + '<h5>';
-							str += '<div>' + item.pw + '</div>';
-							str += '<a class="btn btn-secondary mt-3 mb-3" href="login">' + "LOGIN 이동" + '</a>';
-							str += '</div>';
-							$('.resultForm').append(str);
-					} else {
-						str = 'div';
-						str += '<h2>'+"일치하는 값을 찾지 못했습니다"+'</h2>'
+						str = '<div>';
+						str += '<h5>' + "YOUR ID : " + '<h5>';
+						str	+= '<div>' + data.id + '</div>';
+						str += '<h5>' + "YOUR PW : " + '<h5>';
+						str += '<div>' + data.pw + '</div>';
+						str += '<a class="btn btn-secondary mt-3 mb-3" href="login">' + "LOGIN 이동" + '</a>';
 						str += '</div>';
 						$('.resultForm').append(str);
-					}
 				}
 			})
 		}
-	</script>
+		</script>
+		 -->
 </body>
 </html>

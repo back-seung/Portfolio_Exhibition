@@ -24,7 +24,7 @@ public class FileDataUtil {
 	@Resource(name = "uploadPath")
 	private String uploadPath; // 실제경로
 	static final int THUMB_WIDTH = 300;
-	static final int THUMB_HEIGHT = 300;
+	static final int THUMB_HEIGHT = 500;
 
 	/**
 	 * 파일 업로드 메서드(공통)

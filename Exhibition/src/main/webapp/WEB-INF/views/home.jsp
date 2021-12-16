@@ -5,7 +5,8 @@
 <head>
 <meta charset="UTF-8" />
 <title>Exhibition</title>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <link
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
 	rel="stylesheet">
@@ -41,17 +42,8 @@ body {
 			</div>
 		</div>
 	</nav>
-
-	<div class="col-md-12 item mt-3 mb-3">
-		<ul class="list-group">
-			<h2>NOTICE</h2>
-			<c:forEach var="ntcList" items="${ntcList}">
-				<li class="list-group-item"><span class="badge bg-secondary">
-						공지</span>&nbsp;${ntcList.notice}</li>
-			</c:forEach>
-		</ul>
-	</div>
-	<div id="carouselExampleIndicators" class="carousel slide mb-5"
+	<div id="carouselExampleIndicators"
+		class="carousel slide mb-5 col-md-10 offset-md-1 mt-5 shadow-lg"
 		data-bs-ride="carousel">
 		<div class="carousel-indicators">
 			<button type="button" data-bs-target="#carouselExampleIndicators"
@@ -72,10 +64,20 @@ body {
 					alt="...">
 			</div>
 			<div class="carousel-item">
-				<img src="<c:url value="/img/3.jpg"/>" class="d-inline w-100"
-					alt="...">
+				<img src="<c:url value="/img/3.jpg"/>" class="d-inline w-100">
 			</div>
 		</div>
+	</div>
+
+	<div class="col-md-10 offset-md-1 item mt-3 mb-3">
+		<ul class="list-group">
+			<h2 class="display-5">NOTICE</h2>
+			<hr>
+			<c:forEach var="ntcList" items="${ntcList}">
+				<li class="list-group-item"><span class="badge bg-secondary">
+						공지</span>&nbsp;${ntcList.notice}</li>
+			</c:forEach>
+		</ul>
 	</div>
 	<div class="row row-cols-1 row-cols-md-4 g-4">
 		<c:forEach items="${rcmd}" var="rcmd">
@@ -158,14 +160,14 @@ body {
 			// 지도 중심좌표를 접속위치로 변경합니다
 			map.setCenter(locPosition);
 		}
-		
+
 		var clusterer = new kakao.maps.MarkerClusterer({
 			map : map, // 마커들을 클러스터로 관리하고 표시할 지도 객체 
 			averageCenter : true, // 클러스터에 포함된 마커들의 평균 위치를 클러스터 마커 위치로 설정 
 			minLevel : 10
 		// 클러스터 할 최소 지도 레벨 
 		});
-		
+
 		$.get("json/myList.json", function(data) {
 			// 데이터에서 좌표 값을 가지고 마커를 표시합니다
 			// 마커 클러스터러로 관리할 마커 객체는 생성할 때 지도 객체를 설정하지 않습니다
@@ -178,8 +180,6 @@ body {
 			// 클러스터러에 마커들을 추가합니다
 			clusterer.addMarkers(markers);
 		});
-			
-		
 	</script>
 	<script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>

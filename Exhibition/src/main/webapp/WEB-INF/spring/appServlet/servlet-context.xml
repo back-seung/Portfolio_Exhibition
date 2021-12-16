@@ -32,7 +32,7 @@
 	</beans:bean>
 	<beans:bean id="uploadPath" class="java.lang.String">
 		<beans:constructor-arg
-			value="/Users/seung/Desktop/Spring_MVC_Web/Exhibition/src/main/webapp/resources/img"></beans:constructor-arg>
+			value="/Users/seung/OneDrive/바탕 화면/Spring_MVC_Web/Exhibition/src/main/webapp/resources/img"></beans:constructor-arg>
 	</beans:bean>
 	<!-- Interceptor Settings -->
 	<beans:bean id="AuthLoginInterceptor"

@@ -25,8 +25,6 @@ public class User_DAO_Impl implements IF_User_DAO {
 
 	@Override
 	public void userMod(User_VO userVO) throws Exception {
-		System.out.println("ID : " + userVO.getId());
-		System.out.println("NAME : " + userVO.getName());
 		session.update(mapperquery + ".update", userVO);
 
 	}
