@@ -37,4 +37,9 @@ public class User_Service_Impl implements IF_User_Service {
 		return userDAO.searchUser(searchUser);
 	}
 
+	@Override
+	public int idCheck(String id) throws Exception {
+		return userDAO.idCheck(id);
+	}
+
 }

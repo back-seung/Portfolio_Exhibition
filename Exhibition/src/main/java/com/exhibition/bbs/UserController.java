@@ -36,6 +36,13 @@ public class UserController {
 		return "redirect:/login";
 	}
 
+	// ID 중복체크
+	@RequestMapping(value = "/userRegisterForm/userIdCheck")
+	public int userIdCheck(@RequestParam("id") String id) throws Exception {
+		int result = service.idCheck(id);
+		return result;
+	}
+
 	// 아이디 비밀번호 찾기 폼 이동
 	@RequestMapping(value = "/userSearchIdPwForm", method = RequestMethod.GET)
 	public String SearchIdPw() throws Exception {

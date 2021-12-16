@@ -14,4 +14,6 @@ public interface IF_User_DAO {
 
 	public User_VO searchUser(User_VO searchUser) throws Exception;
 
+	public int idCheck(String id) throws Exception;
+
 }

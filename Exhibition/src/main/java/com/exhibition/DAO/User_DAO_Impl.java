@@ -41,4 +41,9 @@ public class User_DAO_Impl implements IF_User_DAO {
 		return session.selectOne(mapperquery + ".search", searchUser);
 	}
 
+	@Override
+	public int idCheck(String id) throws Exception {
+		return session.selectOne(mapperquery + ".idCheck", id);
+	}
+
 }
