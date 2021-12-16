@@ -19,8 +19,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		email =
 		#{email}
 	</select>
-	<select id="idCheck" resultType="int">
-		SELECT count(*) FROM myUSer WHERE id = #{id}
+	<select id="idCheck" parameterType="String" resultType="int">
+		SELECT
+		count(id) FROM myUSer
+		WHERE id = #{id}
 	</select>
 	<update id="update">
 		UPDATE myUser

@@ -23,8 +23,9 @@ body {
 }
 
 .description {
-	opacity: 65%;
-	color: #BDBDBD;
+	margin-top : 10%;
+	opacity: 75%;
+	color: black;
 }
 </style>
 <title>Document</title>
@@ -54,9 +55,9 @@ body {
 			<img class="img" src="<c:url value="/img/${rcmd.thumbFileName}"/>" />
 			<div class="card-img-overlay">
 				<div class="description">
-					<h1 class="card-title bg-warning display-1 fw-bolder">${rcmd.city}:</h1>
-					<h3 class="display-4 bg-warning">${rcmd.title}</h3>
-					<h2 class="card-text bg-warning fw-bolder">${rcmd.info}</h2>
+					<h2 class="card-title bg-warning display-1 fw-bolder">${rcmd.city}:</h2>
+					<h4 class="bg-warning">${rcmd.title}</h4>
+					<div class="card-text bg-warning fw-bolder">${rcmd.info}</div>
 					<div class=" bg-warning">${rcmd.begin_d}~${rcmd.end_d}</div>
 				</div>
 			</div>

@@ -7,9 +7,11 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.exhibition.Service.IF_User_Service;
 import com.exhibition.VO.User_VO;
@@ -35,9 +37,12 @@ public class UserController {
 	}
 
 	// ID 중복체크
-	@RequestMapping(value = "/userRegisterForm/userIdCheck")
+	@RequestMapping(value = "/userDuplCheck", method = RequestMethod.GET)
+	@ResponseBody
 	public int userIdCheck(@RequestParam("id") String id) throws Exception {
+		System.out.println(id);
 		int result = service.idCheck(id);
+		System.out.println(result);
 		return result;
 	}
 

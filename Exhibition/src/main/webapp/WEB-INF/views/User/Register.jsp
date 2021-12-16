@@ -36,24 +36,38 @@ body {
 			<div class="col-md-4 offset-md-4 shadow-lg inputForm">
 				<div class="mt-4 p-4">
 					<div class="col-sm-12">
+						<label>ID</label>
+					</div>
+					<div class="input-group mb-3">
+						<input type="text" id="id" class="form-control" name="id" value="">
+						<input type="button" class="btn btn-outline-primary"
+							onclick="checkID()" value="중복확인">
+					</div>
+					<div class="col-sm-12 result">
+						<div></div>
+					</div>
+					<div class="col-sm-12">
 						<label>Name</label> <input type="text" class="form-control"
 							name="name" value="">
 					</div>
 					<div class="col-sm-12">
-						<label class="form-label">PW</label> <input id="pw"
-							type="password" class="form-control" name="email">
+						<label class="form-label">PW</label> <input id="pw1"
+							type="password" class="form-control pwForm" name="pw"> <span
+							class="resultPw1"></span>
 					</div>
 					<div class="col-sm-12">
-						<label class="form-label">PW CHECK</label> <input id="pw"
-							type="password" class="form-control" name="email">
+						<label class="form-label">PW CHECK</label> <input id="pw2"
+							type="password" class="form-control"> <span
+							class="resultPw2"></span>
 					</div>
 					<div class="col-sm-12">
-						<label class="form-label">E-mail</label> <input type="email"
-							class="form-control" name="email">
+						<label class="form-label">E-mail</label> <input id="email"
+							type="email" class="form-control" name="email"> <span
+							class="resultEmail"></span>
 					</div>
 					<p>
 						<input type="submit" class="btn btn-secondary mt-3"
-							onclick="checkRegex()" value="SEARCH">
+							onclick="checkRegex()" value="회원가입">
 					</p>
 				</div>
 			</div>
@@ -62,13 +76,71 @@ body {
 	<script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 	<script>
-		let pwRe = /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/;
-		let emailRe = /^[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/i;
-		$('#pw').keyup(function(){
-			if(pwRe.test($('#pw').val())){
-				
+		function checkID() {
+			var id = $('#id').val(); // 1234
+			$.ajax({
+				url : "userDuplCheck",
+				data : {
+					id : id
+				},
+				success : function(result) {
+					if (result == 0) {
+						$(".result > div").empty();
+						str = '<div>사용 가능<div>'
+						$(".result").append(str);
+						console.log(result);
+					} else {
+						$(".result").empty();
+						str = '<div>중복된 ID<div>'
+						$(".result").append(str);
+						console.log(result);
+					}
+				},
+				error : function() {
+					alert("ERROR ! ");
+				}
+
+			});
+		};
+
+
+		$('#pw1').keyup(function() {
+			var pwRe = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+			var pw1 = $('#pw1').val();
+			if (pwRe.test(pw1)) {
+				$('.resultPw1').empty();
+				$('.resultPw1').append('GOOD :)');
+			} else {
+				$('.resultPw1').empty();
+				$('.resultPw1').append('영대소문자 + 숫자 + 특수문자 포함하여 8글자 이상 입력해주세요');
 			}
-		})
+
+		});
+		$('#pw2').keyup(function() {
+			var pw1 = $('#pw1').val();
+			var pw2 = $('#pw2').val();
+			if (pw1 != pw2) {
+				$('.resultPw2').empty();
+				$('.resultPw2').append('비밀번호가 서로 일치하지 않습니다.');
+			} else {
+				$('.resultPw2').empty();
+				$('.resultPw2').append('GOOD :)');
+
+			}
+		});
+		$('#email')
+				.keyup(
+						function() {
+							var emailRe = /^[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/i;
+							var email = $('#email').val();
+							if (emailRe.test(email)) {
+								$('.resultEmail').empty();
+								$('.resultEmail').append('GOOD :)');
+							} else {
+								$('.resultEmail').empty();
+								$('.resultEmail').append('이메일 형식으로 입력해주세요 :(');
+							}
+						});
 	</script>
 </body>
 </html>
