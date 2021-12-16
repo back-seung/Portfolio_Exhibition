@@ -40,11 +40,11 @@ body {
 							name="name" value="">
 					</div>
 					<div class="col-sm-12">
-						<label class="form-label">PW</label> <input id="pw1"
+						<label class="form-label">PW</label> <input id="pw"
 							type="password" class="form-control" name="email">
 					</div>
 					<div class="col-sm-12">
-						<label class="form-label">PW CHECK</label> <input id="pw2"
+						<label class="form-label">PW CHECK</label> <input id="pw"
 							type="password" class="form-control" name="email">
 					</div>
 					<div class="col-sm-12">
@@ -61,5 +61,14 @@ body {
 	</div>
 	<script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+	<script>
+		let pwRe = /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/;
+		let emailRe = /^[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/i;
+		$('#pw').keyup(function(){
+			if(pwRe.test($('#pw').val())){
+				
+			}
+		})
+	</script>
 </body>
 </html>
